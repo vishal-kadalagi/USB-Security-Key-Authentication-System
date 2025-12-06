@@ -1,0 +1,16 @@
+import os
+
+usb_drive = 'H:'  # Replace 'E:' with the appropriate drive letter of your USB drive
+file_name = '.hidden_file.txt'  # Replace '.hidden_file.txt' with the name of your hidden file
+
+# Create the full file path
+file_path = os.path.join(usb_drive, file_name)
+
+try:
+    with open(file_path, 'r') as file:
+        file_contents = file.read()
+        
+except FileNotFoundError:
+    print("File not found.")
+except IOError:
+    print("An error occurred while reading the file.")
